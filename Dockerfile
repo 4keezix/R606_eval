@@ -1,3 +1,9 @@
 FROM php:8.2-apache
 
 RUN docker-php-ext-install pdo pdo_mysql
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+COPY composer.json .
+RUN composer install --no-interaction --prefer-dist
