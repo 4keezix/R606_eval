@@ -10,9 +10,9 @@ class AppTest extends TestCase
     {
         try {
             self::$pdo = new PDO(
-                "mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']};charset=utf8mb4",
-                $_ENV['DB_USER'],
-                $_ENV['DB_PASSWORD']
+                "mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_NAME') . ";charset=utf8mb4",
+                getenv('DB_USER'),
+                getenv('DB_PASSWORD')
             );
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
