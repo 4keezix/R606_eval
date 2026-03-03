@@ -8,7 +8,7 @@
 
 <?php
 try {
-    $p = new PDO("mysql:host=localhost;dbname=ma_bdd;charset=utf8mb4", 'db_user', 'db_pwd');
+    $p = new PDO("mysql:host=db;dbname=ma_bdd;charset=utf8mb4", 'db_user', 'db_pwd');
 
     $p->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $p->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
