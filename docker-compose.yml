@@ -8,7 +8,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: sh -c "php migration.php && apache2-foreground"
+    command: sh -c "composer install --no-interaction && php migration.php && apache2-foreground"
 
   db:
     image: mysql:8.0
