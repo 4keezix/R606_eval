@@ -23,16 +23,7 @@ try {
     exit();
 }
 
-try {
-    $d = $p->query("SELECT id,text FROM db_table")->fetchAll(PDO::FETCH_ASSOC);
-} catch (Exception $e) {
-    $p->prepare('CREATE TABLE IF NOT EXISTS db_table (id INT PRIMARY KEY AUTO_INCREMENT, text VARCHAR(100) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4')->execute();
-    $p->prepare('INSERT INTO db_table (text) VALUES (:text)')->execute([':text' => 'azerty']);
-    $p->prepare('INSERT INTO db_table (text) VALUES (:text)')->execute([':text' => 'abcdef']);
-    $p->prepare('INSERT INTO db_table (text) VALUES (:text)')->execute([':text' => 'xyz']);
-    $p->prepare('INSERT INTO db_table (text) VALUES (:text)')->execute([':text' => '123456789']);
-    $d = $p->query('SELECT id,text FROM db_table')->fetchAll(PDO::FETCH_ASSOC);
-}
+$d = $p->query("SELECT id,text FROM db_table")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <table>
