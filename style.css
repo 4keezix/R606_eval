@@ -1,0 +1,19 @@
+header h2,
+header p {
+    color: crimson;
+}
+
+header .notice {
+    font-weight: bold;
+    border: solid 2px crimson;
+    padding: 5px;
+    width: fit-content;
+}
+
+table thead {
+    font-weight: bold;
+}
+
+table td {
+    border: solid black 1px;
+}
