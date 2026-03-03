@@ -9,7 +9,11 @@ class AppTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         try {
-            self::$pdo = new PDO("mysql:host=db;dbname=ma_bdd;charset=utf8mb4", 'db_user', 'db_pwd');
+            self::$pdo = new PDO(
+                "mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']};charset=utf8mb4",
+                $_ENV['DB_USER'],
+                $_ENV['DB_PASSWORD']
+            );
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             self::markTestSkipped('Base de données inaccessible : ' . $e->getMessage());
