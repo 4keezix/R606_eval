@@ -14,7 +14,11 @@
 
 <?php
 try {
-    $p = new PDO("mysql:host=db;dbname=ma_bdd;charset=utf8mb4", 'db_user', 'db_pwd');
+    $p = new PDO(
+        "mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']};charset=utf8mb4",
+        $_ENV['DB_USER'],
+        $_ENV['DB_PASSWORD']
+    );
 
     $p->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $p->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
